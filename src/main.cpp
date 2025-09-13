@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    sorting sorter;
+    sorting sort;
 
 
     vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
@@ -17,7 +17,7 @@ int main() {
 
     cout << endl;
 
-    sorter.bubbleSort(arr);
+    sort.bubbleSort(arr);
 
     cout << "array ordenado: ";
     for (const auto& elem : arr) {
