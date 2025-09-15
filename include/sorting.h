@@ -10,7 +10,8 @@ class sorting{
         sorting() = default;
         ~sorting() = default;
         void bubbleSort(std::vector<int>& arr);
+        void selectionSort(std::vector<int>& arr);
         
 };
 
-#endif // sorting_H
+#endif // sorting_Hs
