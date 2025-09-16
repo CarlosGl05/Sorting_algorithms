@@ -46,8 +46,25 @@ int main() {
     for (const auto& elem : arrs) {
         cout << elem << " ";
     }
+    cout << endl << endl;
+
+//quick sort
+    vector <int>arrq = {10,7,15,9,1,5};
+    int n = arrq.size();
+    cout << "ejemplo con quick sort: " << endl;
+    cout << "array no ordenado: ";
+    for (int x : arrq) {
+        cout << x << " ";
+    }
     cout << endl;
-    cout << endl;
+
+    sort.quickSort(arrq, 0, n - 1); // Call quickSort to sort the entire array
+
+    cout << "array ordenado: ";
+    for (int x : arrq) {
+        cout << x << " ";
+    }
+    cout << endl << endl;
 
     return 0;
 }

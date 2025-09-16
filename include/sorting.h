@@ -11,6 +11,8 @@ class sorting{
         ~sorting() = default;
         void bubbleSort(std::vector<int>& arr);
         void selectionSort(std::vector<int>& arr);
+        int partition_quick(std::vector<int>& arr,int left,int right);
+        void quickSort(std::vector<int>& arr, int left, int right);
         
 };
 

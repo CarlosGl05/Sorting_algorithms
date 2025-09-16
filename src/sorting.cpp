@@ -40,4 +40,38 @@ void sorting::selectionSort(std::vector<int>& arr){
             std::swap(arr[i], arr[IndexMin]);
         }
 }
-}   
+}  
+
+
+int sorting::partition_quick(std::vector<int>& arr,int left,int right){
+    int pivot = arr[right];
+    int i = left - 1;
+    
+    for (int j = left; j < right; j++){
+        if (arr[j] < pivot){
+            
+            i ++;
+            swap(arr[i],arr[j]);
+            
+        }
+        
+    }
+    
+    swap(arr[i + 1], arr[right]);
+    return (i + 1);
+}
+
+void sorting::quickSort(std::vector<int>& arr,int left,int right){
+    
+    if (right > left){
+        
+        int pivot_index = partition_quick(arr,left,right);
+        
+        quickSort(arr,left,pivot_index - 1);
+        quickSort(arr,pivot_index + 1, right);
+        
+    }
+    
+    
+    
+}
