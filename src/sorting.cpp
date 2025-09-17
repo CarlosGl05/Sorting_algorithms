@@ -8,16 +8,16 @@
 using namespace std;
 
 void sorting::bubbleSort(vector<int>& arr) {
-    int len = arr.size();
-    for (int i = 0; i < len - 1; i++){
-        bool swapped = false;
-        for (int j = 0; j < len - 1 - i; j ++){
-            if (arr[j] > arr[j + 1]){
+    int len = arr.size(); // guardamos el tamaño del array
+    for (int i = 0; i < len - 1; i++){ // bucle que recorre todo el array
+        bool swapped = false; //variable boleana para saber si se hizo un intercambio
+        for (int j = 0; j < len - 1 - i; j ++){ // bucle que recorre desde el inicio hasta el ultimo elemento ordenado
+            if (arr[j] > arr[j + 1]){ // si el elemento actual es mayor que el siguiente, se realiza un intercambio
                 swap(arr[j], arr[j + 1]);
-                swapped = true;
+                swapped = true; // se pone true en la variable boleana para saber que hizo un intercambio
             }
         }
-        if (!swapped) break;
+        if (!swapped) break; // si no se hizo ningun intercambio, el array ya esta ordenado y se sale del bucle
     }
 
 
@@ -44,35 +44,35 @@ void sorting::selectionSort(std::vector<int>& arr){
 
 
 int sorting::partition_quick(std::vector<int>& arr,int left,int right){
-    int pivot = arr[right];
-    int i = left - 1;
-    for (int j = left; j < right; j++){
-        if (arr[j] < pivot){
+    int pivot = arr[right]; //se elige el último elemento como pivote (puede ser cualquier otro)
+    int i = left - 1; // índice del elemento más pequeño
+    for (int j = left; j < right; j++){ //recorre desde el primer elemento hasta el anterior al pivote, en este caso el ultimo
+        if (arr[j] < pivot){ //si el elemento actual es menor que el pivote, se incrementa i y el elemento actual se intercambia con el elemento en la posición i
             i ++;
             swap(arr[i],arr[j]);  
         }
-    } 
-    swap(arr[i + 1], arr[right]);
-    return (i + 1);
+    }
+    swap(arr[i + 1], arr[right]); // la posicion i es el último elemento menor que el pivote, por lo que se el pivote se cambia con el elemento en la posicion i+1
+    return (i + 1); //se retorna la posición del pivote
 }
 
 void sorting::quickSort(std::vector<int>& arr,int left,int right){
-    
-    if (right > left){
+
+    if (right > left){ // condición de parada si el array o subarray tiene 1 o 0 elementos
         
-        int pivot_index = partition_quick(arr,left,right);
+        int pivot_index = partition_quick(arr,left,right); //se obtiene el indice del pivote llamando a la funcnión auxiliar
         
-        quickSort(arr,left,pivot_index - 1);
-        quickSort(arr,pivot_index + 1, right);
+        quickSort(arr,left,pivot_index - 1); //llamadas recursivas a la función quicksort, la izquierda va desde left hasta pivot_index - 1
+        quickSort(arr,pivot_index + 1, right); //la derecha va desde pivot_index + 1 hasta right
         
     } 
     
 }
 
 void sorting::random_vector(vector<int>& arr){
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> distrib(0, 50); 
+    random_device rd; // semilla para el generador de números aleatorios
+    mt19937 gen(rd()); // generador de números aleatorios
+    uniform_int_distribution<> distrib(0, 50); //definicion del rango de numeros aleatorios
 
     // Ajustamos el tamaño del vector arr a 15
     arr.resize(15);
