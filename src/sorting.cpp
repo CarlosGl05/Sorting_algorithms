@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <random> 
+#include <algorithm> 
 
 using namespace std;
 
@@ -9,7 +11,6 @@ void sorting::bubbleSort(vector<int>& arr) {
     int len = arr.size();
     for (int i = 0; i < len - 1; i++){
         bool swapped = false;
-
         for (int j = 0; j < len - 1 - i; j ++){
             if (arr[j] > arr[j + 1]){
                 swap(arr[j], arr[j + 1]);
@@ -25,7 +26,6 @@ void sorting::bubbleSort(vector<int>& arr) {
 // Función para realizar el ordenamiento por selección
 void sorting::selectionSort(std::vector<int>& arr){
     int n = arr.size(); // Tamaño del array
-
     // Bucle para recorrer todos los elementos del array
     for(int i=0; i<n-1; i++){
         int IndexMin=i; // Indice para guardar el elemento mínimo
@@ -46,17 +46,12 @@ void sorting::selectionSort(std::vector<int>& arr){
 int sorting::partition_quick(std::vector<int>& arr,int left,int right){
     int pivot = arr[right];
     int i = left - 1;
-    
     for (int j = left; j < right; j++){
         if (arr[j] < pivot){
-            
             i ++;
-            swap(arr[i],arr[j]);
-            
+            swap(arr[i],arr[j]);  
         }
-        
-    }
-    
+    } 
     swap(arr[i + 1], arr[right]);
     return (i + 1);
 }
@@ -70,8 +65,20 @@ void sorting::quickSort(std::vector<int>& arr,int left,int right){
         quickSort(arr,left,pivot_index - 1);
         quickSort(arr,pivot_index + 1, right);
         
-    }
+    } 
     
-    
-    
+}
+
+void sorting::random_vector(vector<int>& arr){
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distrib(0, 50); 
+
+    // Ajustamos el tamaño del vector arr a 15
+    arr.resize(15);
+
+    // Llenamos arr directamente
+    generate(arr.begin(), arr.end(), [&]() {
+        return distrib(gen);
+    });
 }
