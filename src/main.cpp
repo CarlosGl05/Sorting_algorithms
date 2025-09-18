@@ -51,6 +51,20 @@ int main() {
     }
     cout << endl << endl;
 
+    //merge sort
+    sort.random_vector(arr);
+    cout << "Array antes de Merge Sort: ";
+    for (const auto& num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    sort.mergeSort(arr, 0, arr.size() - 1);
+    cout << "Array después de Merge Sort: ";
+    for (const auto& num : arr) {
+        cout << num << " ";
+    }
+    cout << endl << endl;
+
     //quick sort
     sort.random_vector(arr);
     cout << "Array antes de Quick Sort: ";

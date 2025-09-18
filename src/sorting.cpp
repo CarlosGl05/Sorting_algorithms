@@ -60,6 +60,62 @@ void sorting::insertionSort(std::vector<int>& arr){
 }
 
 
+void sorting::merge(std::vector<int>& arr, int left, int mid, int right){
+    int n1 = mid - left + 1; // tamaño del subarray izquierdo
+    int n2 = right - mid; // tamaño del subarray derecho
+
+    // Crear arrays temporales para los subarrays izquierdo y derecho
+    std::vector<int> L(n1);
+    std::vector<int> R(n2);
+
+    // Copiar los datos a los arrays temporales L[] y R[]
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+
+    // Merge los arrays temporales de vuelta en arr[left..right]
+    int i = 0; // Índice inicial del primer subarray
+    int j = 0; // Índice inicial del segundo subarray
+    int k = left; // Índice inicial del subarray fusionado
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copiar los elementos restantes de L[], si hay alguno
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copiar los elementos restantes de R[], si hay alguno
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void sorting::mergeSort(std::vector<int>& arr, int left, int right){
+    if (left < right) { // condición de parada si el array o subarray tiene 1 o 0 elementos
+        int mid = left + (right - left) / 2; // encontrar el punto medio para dividir el array en dos mitades
+
+        mergeSort(arr, left, mid); // llamada recursiva para la primera mitad
+        mergeSort(arr, mid + 1, right); // llamada recursiva para la segunda mitad
+
+        merge(arr, left, mid, right); // fusionar las dos mitades ordenadas
+    }
+}
+
 int sorting::partition_quick(std::vector<int>& arr,int left,int right){
     int pivot = arr[right]; //se elige el último elemento como pivote (puede ser cualquier otro)
     int i = left - 1; // índice del elemento más pequeño
