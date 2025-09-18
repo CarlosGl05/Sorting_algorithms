@@ -3,7 +3,7 @@
 [![Actividad](https://img.shields.io/badge/Actividad-3--Algoritmos%20de%20ordenamiento-green)]()
 
 # ▶️ Video en Youtube:
-**https:://videodeyutu**
+**(https://youtu.be/h693m8yZdRk?si=M-WLwHCjIJ-H4zEm)**
 
 # 🧩 Actividad 3 Algoritmos de ordenamiento
 
