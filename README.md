@@ -3,7 +3,7 @@
 [![Actividad](https://img.shields.io/badge/Actividad-3--Algoritmos%20de%20ordenamiento-green)]()
 
 # ▶️ Video en Youtube:
-****
+**https:://videodeyutu**
 
 # 🧩 Actividad 3 Algoritmos de ordenamiento
 
@@ -75,13 +75,15 @@ Además, se incluye la función `random_vector` para generar automáticamente ve
 #include <iostream>
 #include <vector>
 using namespace std;
+vector<int> array_ordenado = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+vector<int> array_unidad = {1};
 
 int main() {
     vector<int> arr;
     sorting sort;
-    sort.random_vector(arr);
 
     //bubble sort
+    sort.random_vector(arr);
     cout << "Array antes de Bubble Sort: ";
     for (const auto& num : arr) {
         cout << num << " ";
@@ -90,6 +92,17 @@ int main() {
     sort.bubbleSort(arr);
     cout << "Array después de Bubble Sort: ";
     for (const auto& num : arr) {
+        cout << num << " ";
+    }
+
+    sort.bubbleSort(array_ordenado);
+    sort.bubbleSort(array_unidad);
+    cout << endl << "Array ordenado de 1 a 15 después de Bubble Sort: ";
+    for (const auto& num : array_ordenado) {
+        cout << num << " ";
+    }
+    cout << endl << "Array unidad después de Bubble Sort: ";
+    for (const auto& num : array_unidad) {
         cout << num << " ";
     }
     cout << endl << endl;
@@ -106,6 +119,16 @@ int main() {
     for (const auto& num : arr) {
         cout << num << " ";
     }
+    sort.selectionSort(array_ordenado);
+    sort.selectionSort(array_unidad);
+    cout << endl << "Array ordenado de 1 a 15 después de Selection Sort: ";
+    for (const auto& num : array_ordenado) {
+        cout << num << " ";
+    }
+    cout << endl << "Array unidad después de Selection Sort: ";
+    for (const auto& num : array_unidad) {
+        cout << num << " ";
+    }
     cout << endl << endl;
 
     //insertion sort
@@ -118,6 +141,17 @@ int main() {
     sort.insertionSort(arr);
     cout << "Array después de Insertion Sort: ";
     for (const auto& num : arr) {
+        cout << num << " ";
+    }
+
+    sort.insertionSort(array_ordenado);
+    sort.insertionSort(array_unidad);
+    cout << endl << "Array ordenado de 1 a 15 después de Insertion Sort: ";
+    for (const auto& num : array_ordenado) {
+        cout << num << " ";
+    }
+    cout << endl << "Array unidad después de Insertion Sort: ";
+    for (const auto& num : array_unidad) {
         cout << num << " ";
     }
     cout << endl << endl;
@@ -134,6 +168,16 @@ int main() {
     for (const auto& num : arr) {
         cout << num << " ";
     }
+    sort.mergeSort(array_ordenado, 0, array_ordenado.size() - 1);
+    sort.mergeSort(array_unidad, 0, array_unidad.size() - 1);
+    cout << endl << "Array ordenado de 1 a 15 después de Merge Sort: ";
+    for (const auto& num : array_ordenado) {
+        cout << num << " ";
+    }
+    cout << endl << "Array unidad después de Merge Sort: ";
+    for (const auto& num : array_unidad) {
+        cout << num << " ";
+    }
     cout << endl << endl;
 
     //quick sort
@@ -148,29 +192,48 @@ int main() {
     for (const auto& num : arr) {
         cout << num << " ";
     }
+    sort.quickSort(array_ordenado, 0, array_ordenado.size() - 1);
+    sort.quickSort(array_unidad, 0, array_unidad.size() - 1);
+    cout << endl << "Array ordenado de 1 a 15 después de Quick Sort: ";
+    for (const auto& num : array_ordenado) {
+        cout << num << " ";
+    }
+    cout << endl << "Array unidad después de Quick Sort: ";
+    for (const auto& num : array_unidad) {
+        cout << num << " ";
+    }
     cout << endl << endl;
 
     return 0;
 }
 
-
 ```
 ## Salida esperada (ejemplo) Considerar que los array son generados de forma aleatoria
 ```
-Array antes de Bubble Sort: 12 16 43 2 16 18 21 12 19 39 34 8 37 23 10 
-Array después de Bubble Sort: 2 8 10 12 12 16 16 18 19 21 23 34 37 39 43
+Array antes de Bubble Sort: 40 41 50 36 14 2 42 17 11 41 17 23 8 11 36 
+Array después de Bubble Sort: 2 8 11 11 14 17 17 23 36 36 40 41 41 42 50
+Array ordenado de 1 a 15 después de Bubble Sort: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+Array unidad después de Bubble Sort: 1
 
-Array antes de Selection Sort: 4 46 7 7 14 19 47 12 19 43 17 36 18 15 24
-Array después de Selection Sort: 4 7 7 12 14 15 17 18 19 19 24 36 43 46 47
+Array antes de Selection Sort: 25 5 35 35 33 42 26 3 5 40 38 32 12 10 31
+Array después de Selection Sort: 3 5 5 10 12 25 26 31 32 33 35 35 38 40 42
+Array ordenado de 1 a 15 después de Selection Sort: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+Array unidad después de Selection Sort: 1
 
-Array antes de Insertion Sort: 43 7 30 48 39 2 20 15 35 20 24 27 38 35 26
-Array después de Insertion Sort: 2 7 15 20 20 24 26 27 30 35 35 38 39 43 48
+Array antes de Insertion Sort: 35 30 24 40 8 22 33 32 6 26 43 18 2 14 27
+Array después de Insertion Sort: 2 6 8 14 18 22 24 26 27 30 32 33 35 40 43
+Array ordenado de 1 a 15 después de Insertion Sort: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+Array unidad después de Insertion Sort: 1
 
-Array antes de Merge Sort: 23 17 23 8 37 9 32 41 45 40 18 36 33 11 32
-Array después de Merge Sort: 8 9 11 17 18 23 23 32 32 33 36 37 40 41 45
+Array antes de Merge Sort: 12 23 46 46 14 3 30 2 22 19 44 8 44 45 19
+Array después de Merge Sort: 2 3 8 12 14 19 19 22 23 30 44 44 45 46 46
+Array ordenado de 1 a 15 después de Merge Sort: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+Array unidad después de Merge Sort: 1
 
-Array antes de Quick Sort: 23 14 9 14 33 37 34 25 7 24 26 26 48 33 37
-Array después de Quick Sort: 7 9 14 14 23 24 25 26 26 33 33 34 37 37 48
+Array antes de Quick Sort: 10 2 33 43 22 11 24 19 48 35 8 37 25 20 20
+Array después de Quick Sort: 2 8 10 11 19 20 20 22 24 25 33 35 37 43 48
+Array ordenado de 1 a 15 después de Quick Sort: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+Array unidad después de Quick Sort: 1
 
 ```
 ## ⭐Mejores casos de implementación:
