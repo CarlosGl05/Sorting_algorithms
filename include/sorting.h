@@ -12,6 +12,7 @@ class sorting{
         ~sorting() = default; // destructor por defecto
         void bubbleSort(std::vector<int>& arr); 
         void selectionSort(std::vector<int>& arr);
+        void insertionSort(std::vector<int>& arr);
         int partition_quick(std::vector<int>& arr,int left,int right); //funcion auxiliar para quicksort
         void quickSort(std::vector<int>& arr, int left, int right);
         void random_vector(std::vector<int>& arr);

@@ -37,6 +37,20 @@ int main() {
     }
     cout << endl << endl;
 
+    //insertion sort
+    sort.random_vector(arr);
+    cout << "Array antes de Insertion Sort: ";
+    for (const auto& num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    sort.insertionSort(arr);
+    cout << "Array después de Insertion Sort: ";
+    for (const auto& num : arr) {
+        cout << num << " ";
+    }
+    cout << endl << endl;
+
     //quick sort
     sort.random_vector(arr);
     cout << "Array antes de Quick Sort: ";

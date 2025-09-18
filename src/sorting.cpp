@@ -42,6 +42,23 @@ void sorting::selectionSort(std::vector<int>& arr){
 }
 }  
 
+void sorting::insertionSort(std::vector<int>& arr){
+    int size = arr.size();
+    for (int i = 1; i < size; ++i) {
+        int key = arr[i];  // Elemento a insertar
+        int j = i - 1;
+
+        // Desplazar los elementos mayores que key hacia la derecha
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            --j;
+        }
+
+        // Insertar el elemento en su posición correcta
+        arr[j + 1] = key;
+    }
+}
+
 
 int sorting::partition_quick(std::vector<int>& arr,int left,int right){
     int pivot = arr[right]; //se elige el último elemento como pivote (puede ser cualquier otro)
